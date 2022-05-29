@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="../js/site.js" defer></script>
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="../css/site.css">
+    <link rel="stylesheet" href="../css/logout.css">
+    <title>BookTrackers</title>
+</head>
+<body>
+    <header>
+        <a href="index.html">Homepage</a>
+        <h1>BookTrackers2000</h1>
+        <div v-if="!this.loggedIn">
+            <form @submit.prevent="login">
+                <input type="text" v-model="username" placeholder="Username" />
+                <input type="password" v-model="password" name="password" placeholder="Password" />
+                <input type="submit" value="Submit" />
+            </form>
+            <a href="register.html">Register</a>
+        </div>
+        <div v-if="this.loggedIn" id="loggedIn">
+            <span id="username">{{this.username}}</span>
+            <a href="account.html">Account</a>
+            <a href="logout.html" @click="logout">Log out</a>
+        </div>
+    </header>
+
+    <main>
+        <h2>See you soon!</h2>
+    </main>
+   
+</body>
+</html>

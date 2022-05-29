@@ -1,0 +1,12 @@
+﻿main form {
+    display: grid;
+    border: 1px solid black;
+    width: 100%;
+    padding: 50px;
+    background: rgb(0, 0, 0, 0.7);
+}
+
+main {
+    display: flex;
+    width: 400px;
+}

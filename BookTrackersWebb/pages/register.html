@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="../js/site.js" defer></script>
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="../css/site.css">
+    <link rel="stylesheet" href="../css/register.css">
+    <title>BookTrackers Register</title>
+</head>
+<body>
+        <header>
+            <a href="index.html">Homepage</a>
+            <h1>BookTrackers2000</h1>
+        </header>
+
+        <main>
+            <form @submit.prevent="registerUser">
+                <h2>Register</h2>
+                <input type="text" v-model="username" placeholder="Username" />
+                <input type="password" v-model="password" placeholder="Password" />
+                <input type="email" v-model="email" placeholder="Email" />
+                <input type="submit" value="Submit" />
+                <span id="message"></span>
+            </form>
+        </main>
+</body>
+</html>

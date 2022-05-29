@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="../js/site.js" defer></script>
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="../css/site.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <title>BookTrackers</title>
+</head>
+
+<body>
+        <header>
+            <div id="nav">
+                <a href="books.html">Library</a>
+            </div>
+            <h1>BookTrackers2000</h1>
+            <div v-if="!this.loggedIn">
+                <form @submit.prevent="login">
+                    <input type="text" v-model="username" placeholder="Username" />
+                    <input type="password" v-model="password" name="password" placeholder="Password" />
+                    <input type="submit" value="Submit" />
+                </form>
+                <a href="register.html">Register</a>
+            </div>
+            <div v-if="this.loggedIn" id="loggedIn">
+                <span id="username">{{this.username}}</span>
+                <a href="account.html">Account</a>
+                <a href="logout.html" @click="logout">Log out</a>
+            </div>
+        </header>
+        <main>
+            <div id="user" class="box">
+                <h2>Currently reading</h2>
+                <ul>
+                    <li v-for="book in currentlyReading" class="book">
+                        <div>
+                            <p>Title: {{book.title}}</p>
+                            <p>
+                                Authors:
+                                <ul>
+                                    <li v-for="author in book.authors">
+                                        {{author.firstName}} {{author.lastName}}
+                                    </li>
+                                </ul>
+                            </p>
+                            <p>{{book.totalPagesRead}}/{{book.totalPages}} pages read</p>
+                        </div>
+                        <button @click="registerReading(book.id)">Add Reading</button>
+                    </li>
+                </ul>
+            </div>
+            <div id="readings" class="box">
+                <h2>Past Readings</h2>
+                <ul>
+                    <li v-for="reading in readings" class="book">
+                        <div>
+                            <p>Title: {{reading.book.title}}</p>
+                            <p>
+                                Authors:
+                                <ul>
+                                    <li v-for="author in reading.book.authors" class="author">
+                                        {{author.firstName}} {{author.lastName}}
+                                    </li>
+                                </ul>
+                            </p>
+                            <p>Session: {{reading.pagesRead}} pages read</p>
+                            <p>Total: {{reading.book.totalPagesRead}}/
+                            {{reading.book.totalPages}} pages read</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </main>
+</body>
+
+</html>

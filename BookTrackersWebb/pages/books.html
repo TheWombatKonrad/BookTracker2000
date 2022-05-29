@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="../js/site.js" defer></script>
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="../css/site.css">
+    <link rel="stylesheet" href="../css/books.css">
+    <title>BookTrackers</title>
+</head>
+
+<body>
+    <header>
+        <div id="nav">
+            <a href="index.html">Homepage</a>
+            <a href="add-book.html">Add Book</a>
+        </div>
+        <h1>BookTrackers2000</h1>
+        <div v-if="!this.loggedIn">
+            <form @submit.prevent="login">
+                <input type="text" v-model="username" placeholder="Username" />
+                <input type="password" v-model="password" name="password" placeholder="Password" />
+                <input type="submit" value="Submit" />
+            </form>
+            <a href="register.html">Register</a>
+        </div>
+        <div v-if="this.loggedIn" id="loggedIn">
+            <span id="username">{{this.username}}</span>
+            <a href="account.html">Account</a>
+            <a href="logout.html" @click="logout">Log out</a>
+        </div>
+    </header>
+    <main>
+        <div id="library">
+            <h2>Available Books</h2>
+            <ul>
+                <li v-for="book in library" class="book">
+                    <div>
+                        <p>Title: {{book.title}}</p>
+                        <p>
+                            Authors:
+                            <ul>
+                                <li v-for="author in book.authors" class="author">
+                                    {{author.firstName}} {{author.lastName}}
+                                </li>
+                            </ul>
+                        </p>
+                    </div>
+                    <button @click="registerReading(book.id)">Add Reading</button>
+                </li>
+            </ul>
+        </div>
+        <div id="user-books">
+            <h2>Your books</h2>
+            <ul>
+                <li v-for="book in userBooks" class="book">
+                    <p>Title: {{book.title}}</p>
+                    <p>
+                        Authors:
+                        <ul>
+                            <li v-for="author in book.authors">
+                                {{author.firstName}} {{author.lastName}}
+                            </li>
+                        </ul>
+                    </p>
+                    <p>{{book.totalPagesRead}}/{{book.totalPages}} pages read</p>
+                </li>
+            </ul>
+        </div>
+    </main>
+</body>
+
+</html>

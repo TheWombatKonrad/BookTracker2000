@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="css\add-book.css" />
+    <None Remove="css\books.css" />
+    <None Remove="css\logout.css" />
+    <None Remove="css\register.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="css\books.css" />
+    <Content Include="css\add-book.css" />
+    <Content Include="css\register.css" />
+    <Content Include="css\logout.css" />
+    <Content Include="css\index.css" />
+    <Content Include="css\site.css" />
+    <Content Include="images\background.webp" />
+    <Content Include="js\site.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="vue" Version="2.6.11" />
+  </ItemGroup>
+
+</Project>

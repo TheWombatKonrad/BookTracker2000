@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "q0hGJfRTJ3DKP56iA3ZqTsgWNJpyFOm8yCKMLSt5yGQD2LEvxYli1ehERUVsvCGO7CimjhbGoMMNdnAqaicSbw==",
+  "success": true,
+  "projectFilePath": "G:\\Min enhet\\Dokument\\Skola\\.NET\\Backend\\BookTracker2000\\BookTrackersWebb\\BookTrackersWeb.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\womba\\.nuget\\packages\\vue\\2.6.11\\vue.2.6.11.nupkg.sha512"
+  ],
+  "logs": []
+}
