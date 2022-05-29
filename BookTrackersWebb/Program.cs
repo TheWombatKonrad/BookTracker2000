@@ -1,8 +1,5 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddRazorPages();
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -14,12 +11,12 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseDefaultFiles();
 app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+app.UsePathBase("/pages/index.html");
 
-app.MapRazorPages();
-
-app.Run();
+app.Run("https://localhost:4001");

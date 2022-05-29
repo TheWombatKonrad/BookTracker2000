@@ -7,25 +7,27 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="css\add-book.css" />
-    <None Remove="css\books.css" />
-    <None Remove="css\logout.css" />
-    <None Remove="css\register.css" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="css\books.css" />
-    <Content Include="css\add-book.css" />
-    <Content Include="css\register.css" />
-    <Content Include="css\logout.css" />
-    <Content Include="css\index.css" />
-    <Content Include="css\site.css" />
-    <Content Include="images\background.webp" />
-    <Content Include="js\site.js" />
+    <None Remove="wwwroot\css\add-book.css" />
+    <None Remove="wwwroot\css\books.css" />
+    <None Remove="wwwroot\css\logout.css" />
+    <None Remove="wwwroot\css\register.css" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="vue" Version="2.6.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\index.css" />
+    <None Include="wwwroot\css\site.css" />
+    <None Include="wwwroot\images\background.webp" />
+    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\Pages\account.html" />
+    <None Include="wwwroot\Pages\add-book.html" />
+    <None Include="wwwroot\Pages\books.html" />
+    <None Include="wwwroot\Pages\index.html" />
+    <None Include="wwwroot\Pages\logout.html" />
+    <None Include="wwwroot\Pages\register.html" />
   </ItemGroup>
 
 </Project>

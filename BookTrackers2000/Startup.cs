@@ -32,7 +32,7 @@ namespace BookTrackersApi
 
             app.UseMiddleware<JwtMiddleware>();
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
             app.MapControllers();
 
@@ -55,10 +55,10 @@ namespace BookTrackersApi
                 options.AddDefaultPolicy(
                     policy =>
                     {
-                        policy.AllowAnyOrigin()//set specific origin
+                        policy.WithOrigins("https://localhost:4000", "https://localhost:4001")
                         .AllowAnyMethod()
-                        .AllowAnyHeader();
-                        //.AllowCredentials();
+                        .AllowAnyHeader()
+                        .AllowCredentials();
                     });
             });   
 
