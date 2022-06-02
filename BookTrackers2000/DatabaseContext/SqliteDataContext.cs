@@ -13,6 +13,9 @@
         {
             // connect to sqlite database
             options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
+
+            //related data is loaded from the database when navigation property is accessed
+            //meaning helps with the relationships in entities
             options.UseLazyLoadingProxies();
         }
     }

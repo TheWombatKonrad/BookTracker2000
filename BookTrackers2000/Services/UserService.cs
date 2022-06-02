@@ -19,6 +19,7 @@ public interface IUserService
     void Register(RegisterUserRequest model);
     void Update(int id, UpdateUserRequest model);
     void Delete(int id);
+    void DeleteCurrentUser();
     void DeleteBookFromUser(int userId, int bookId);
     void DeleteBookFromCurrentUser(int bookdId);
 }
@@ -69,6 +70,7 @@ public class UserService : IUserService
         return users;
     }
 
+    //important for getting user from httpcontext
     public User GetUser(int id)
     {
         return getById(id);
@@ -130,11 +132,23 @@ public class UserService : IUserService
         _context.SaveChanges();
     }
 
+    public void DeleteCurrentUser()
+    {
+        var user = (User)_httpContextAccessor.HttpContext.Items["User"];
+
+        if (user == null) throw new KeyNotFoundException("User not found");
+
+        _context.Users.Remove(user);
+        _context.SaveChanges();
+    }
+
     public void DeleteBookFromUser(int userId, int bookId)
     {
-        var userBook = _context.Users.Find(userId).Books.FirstOrDefault(x => x.Book.Id == bookId);
+        var userBook = _context.Users.Find(userId)
+            .Books.FirstOrDefault(x => x.Book.Id == bookId);
 
-        if (userBook == null) throw new KeyNotFoundException("Either the user or the book was not found.");
+        if (userBook == null) 
+            throw new KeyNotFoundException("Either the user or the book was not found.");
 
         _context.Remove(userBook);
         _context.SaveChanges();
@@ -162,6 +176,7 @@ public class UserService : IUserService
         return user;
     }
 
+    //from a list of userbooks, returns a list of userBookViews
     private IEnumerable<UserBookView> getBookList(IEnumerable<UserBook> userBooks)
     {
         var bookList = new List<UserBookView>();
@@ -191,7 +206,6 @@ public class UserService : IUserService
         {
             Id = _user.Id,
             Username = _user.Username,
-            PasswordHash = _user.PasswordHash,
             Email = _user.Email,
             BookList = getBookList(_user.Books)
         };

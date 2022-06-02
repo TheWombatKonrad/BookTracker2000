@@ -7,17 +7,19 @@
     <script src="../js/site.js" defer></script>
     <script src="https://unpkg.com/vue"></script>
     <link rel="stylesheet" href="../css/site.css">
-    <link rel="stylesheet" href="../css/index.css">
     <title>BookTrackers</title>
 </head>
 
 <body>
         <header>
-            <div id="nav">
+            <div class="nav" v-if="loggedIn">
                 <a href="books.html">Library</a>
             </div>
+            <div class="nav" v-if="!loggedIn">
+                <p>Welcome!</p>
+            </div>
             <h1>BookTrackers2000</h1>
-            <div v-if="!this.loggedIn">
+            <div v-if="!this.loggedIn" id="log-in">
                 <form @submit.prevent="login">
                     <input type="text" v-model="username" placeholder="Username" />
                     <input type="password" v-model="password" name="password" placeholder="Password" />
@@ -25,14 +27,15 @@
                 </form>
                 <a href="register.html">Register</a>
             </div>
-            <div v-if="this.loggedIn" id="loggedIn">
+            <div v-if="this.loggedIn" id="loggedIn" class="user-bar">
                 <span id="username">{{this.username}}</span>
                 <a href="account.html">Account</a>
-                <a href="logout.html" @click="logout">Log out</a>
+                <a href="logout.html" @click="logOut">Log out</a>
             </div>
         </header>
-        <main>
-            <div id="user" class="box">
+
+        <main class="divided">
+            <div class="box">
                 <h2>Currently reading</h2>
                 <ul>
                     <li v-for="book in currentlyReading" class="book">
@@ -41,7 +44,7 @@
                             <p>
                                 Authors:
                                 <ul>
-                                    <li v-for="author in book.authors">
+                                    <li v-for="author in book.authors" class="author">
                                         {{author.firstName}} {{author.lastName}}
                                     </li>
                                 </ul>
@@ -52,7 +55,7 @@
                     </li>
                 </ul>
             </div>
-            <div id="readings" class="box">
+            <div class="box">
                 <h2>Past Readings</h2>
                 <ul>
                     <li v-for="reading in readings" class="book">

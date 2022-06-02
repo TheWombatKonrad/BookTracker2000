@@ -7,7 +7,7 @@ namespace BookTrackersApi.Entities
     {
         public int Id { get; set; }
 
-        [StringLength(50, ErrorMessage = "The {0} value cannot exceed {1} characters. ")]
+        [StringLength(100, ErrorMessage = "The {0} value cannot exceed {1} characters. ")]
         public string Title { get; set; }
         [JsonIgnore]
         public virtual IList<Author> Authors { get; set; } = new List<Author>();

@@ -1,14 +1,16 @@
-﻿{
+﻿//ONLY USED WHEN IN DEVELOPMENT!!
+
+{
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "http://localhost:4001",
-      "sslPort": 4001
+      "sslPort": 44330 //do not edit
     }
   },
   "profiles": {
-    "BookTrackersWebb": {
+    "BookTrackersWebb": {//used if application is run using .NET Core CLI
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
@@ -17,12 +19,12 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "IIS Express": {
+    "IIS Express": {//used if application is run from Visual Studio (button etc)
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }
-  }
+  }//profiles
 }

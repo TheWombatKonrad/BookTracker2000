@@ -1,0 +1,21 @@
+﻿#user-info {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 250px;
+    height: 50px;
+    padding: 50px;
+    margin-left: calc(50vw - 250px);
+    margin-top: calc(50vh - 150px);
+    background: rgb(0, 0, 0, 0.7);
+}
+
+#user-info button {
+    margin-top: 5px;
+    padding: 2px;
+}
+
+#user-info p {
+    text-align: left;
+    width: 100%;
+}

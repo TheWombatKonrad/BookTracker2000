@@ -15,8 +15,11 @@ namespace BookTrackersApi
         }
         public IConfigurationRoot Configuration { get; }
 
+        //this runs at every request
         public void Configure(WebApplication app)
         {
+            //the order of things is important so be careful when adding things
+
             app.UseRouting();
 
             // global cors policy
@@ -25,11 +28,8 @@ namespace BookTrackersApi
             app.UseAuthentication();
             app.UseAuthorization();
 
-            //app.UseIdentityServer();
-
             // global error handler
             app.UseMiddleware<ErrorHandlerMiddleware>();
-
             app.UseMiddleware<JwtMiddleware>();
 
             app.UseHttpsRedirection();
@@ -43,8 +43,11 @@ namespace BookTrackersApi
             }
         }
 
+        //this runs when application starts
         public void ConfigureServices(IServiceCollection services, IWebHostEnvironment env)
         {
+            //the order of things is important so be careful when adding things
+
             if (env.IsProduction())
                 services.AddDbContext<SqlServerDataContext>();
             else
@@ -55,19 +58,20 @@ namespace BookTrackersApi
                 options.AddDefaultPolicy(
                     policy =>
                     {
-                        policy.WithOrigins("https://localhost:4000", "https://localhost:4001")
+                        policy.WithOrigins("https://localhost:4000",//api
+                            "https://localhost:4001",//webb
+                            "https://localhost:5001")//identityserver
                         .AllowAnyMethod()
                         .AllowAnyHeader()
                         .AllowCredentials();
                     });
             });   
 
-            services.AddControllers();
-            services.AddControllers().AddJsonOptions(x =>
-                            x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
-
-            //services.AddEndpointsApiExplorer();
-            services.AddSwaggerGen();
+            //so it doesn't cycle forever
+            services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions
+                            .ReferenceHandler = ReferenceHandler.IgnoreCycles);
+;
+            services.AddSwaggerGen();//acces via https://localhost:4000/swagger
 
             // configure automapper with all automapper profiles from this assembly
             services.AddAutoMapper(typeof(Program));
@@ -84,8 +88,9 @@ namespace BookTrackersApi
             //so httpcontext can be accessed in the services
             services.AddHttpContextAccessor();
 
-            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
-            .AddIdentityServerAuthentication(options =>
+            //config identityserver
+            services.AddAuthentication("Bearer")
+            .AddIdentityServerAuthentication("Bearer", options =>
             {
                 options.Authority = "https://localhost:5001";
                 options.ApiName = "app.api.OpenBookTrackers";

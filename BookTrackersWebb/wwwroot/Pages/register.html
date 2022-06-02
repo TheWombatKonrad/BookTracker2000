@@ -16,12 +16,12 @@
         </header>
 
         <main>
-            <form @submit.prevent="registerUser">
+            <form @submit.prevent="registerUser" id="register">
                 <h2>Register</h2>
-                <input type="text" v-model="username" placeholder="Username" />
-                <input type="password" v-model="password" placeholder="Password" />
-                <input type="email" v-model="email" placeholder="Email" />
-                <input type="submit" value="Submit" />
+                <input type="text" v-model="username" placeholder="Username" required maxlength="16"/>
+                <input type="password" v-model="password" placeholder="Password" required maxlength="16"/>
+                <input type="email" v-model="email" placeholder="Email" required/>
+                <input type="submit" value="Submit" class="submit-button"/>
                 <span id="message"></span>
             </form>
         </main>

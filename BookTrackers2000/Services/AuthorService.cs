@@ -5,6 +5,7 @@ using BookTrackersApi.DatabaseContext;
 using BookTrackersApi.Entities;
 using BookTrackersApi.Helpers;
 using BookTrackersApi.Models.Authors;
+using BookTrackersApi.Models.Books;
 using BookTrackersApi.Views;
 
 public interface IAuthorService
@@ -29,6 +30,7 @@ public class AuthorService : IAuthorService
         _mapper = mapper;
     }
 
+    //returns all authors authorview
     public IEnumerable<AuthorView> GetAll()
     {
         List<AuthorView> authors = new List<AuthorView>();
@@ -39,19 +41,20 @@ public class AuthorService : IAuthorService
         }
 
         return authors;
-
     }
 
+    //returns specific author
     public AuthorView GetAuthor(int id)
     {
         var author = getById(id);
         return createAuthorView(author);
     }
 
+    //register an author if it doesn't already exist
     public Author Register(RegisterAuthorRequest model)
     {
         var author = _mapper.Map<Author>(model);
-        var dbAuthors = _context.Authors;
+        var dbAuthors = _context.Authors;//to check if the author already exists
 
         foreach(var dbAuthor in dbAuthors)
         {
@@ -68,13 +71,12 @@ public class AuthorService : IAuthorService
     public void Update(int id, UpdateAuthorRequest model)
     {
         var author = getById(id);
-
-        var dbAuthors = _context.Authors;
+        var dbAuthors = _context.Authors;//to check if the author already exists
 
         foreach (var dbAuthor in dbAuthors)
         {
             if ((author.LastName == dbAuthor.LastName) && (author.FirstName == dbAuthor.FirstName))
-                throw new AppException("The author has already been added");
+                throw new AppException("That author already exists");
         }
 
         _mapper.Map(model, author);

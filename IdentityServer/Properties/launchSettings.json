@@ -1,8 +1,10 @@
-﻿{
+﻿//ONLY USED WHEN IN DEVELOPMENT!!
+
+{
   "profiles": {
     "SelfHost": {
       "commandName": "Project",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

@@ -1,6 +1,7 @@
 ﻿using BookTrackersApi.Authorization;
 using BookTrackersApi.DatabaseContext;
 using BookTrackersApi.Models.Authors;
+using BookTrackersApi.Models.Books;
 using BookTrackersApi.Services;
 using Microsoft.AspNetCore.Mvc;
 

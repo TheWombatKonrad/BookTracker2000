@@ -33,7 +33,7 @@ public class AutoMapperProfile : Profile
         // RegisterRequest -> Author
         CreateMap<RegisterAuthorRequest, Author>();
 
-        // UpdateRequest -> User
+        // UpdateRequest -> Author
         CreateMap<UpdateAuthorRequest, Author>()
             .ForAllMembers(x => x.Condition(
                 (src, dest, prop) =>
@@ -48,19 +48,6 @@ public class AutoMapperProfile : Profile
 
         // RegisterRequest -> Book
         CreateMap<RegisterBookRequest, Book>();
-
-        // UpdateRequest -> User
-        CreateMap<UpdateBookRequest, Book>()
-            .ForAllMembers(x => x.Condition(
-                (src, dest, prop) =>
-                {
-                    // ignore null & empty string properties
-                    if (prop == null) return false;
-                    if (prop.GetType() == typeof(string) && string.IsNullOrEmpty((string)prop)) return false;
-
-                    return true;
-                }
-            ));
 
         // RegisterRequest -> Reading
         CreateMap<RegisterReadingRequest, Reading>();
@@ -77,6 +64,7 @@ public class AutoMapperProfile : Profile
                     return true;
                 }
             ));
+
 
     }
 }

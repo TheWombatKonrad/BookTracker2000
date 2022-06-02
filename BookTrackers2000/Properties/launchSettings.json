@@ -1,15 +1,17 @@
-﻿{
+﻿//ONLY USED WHEN IN DEVELOPMENT!!
+
+{
   "$schema": "https://json.schemastore.org/launchsettings.json",
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "http://localhost:4000",
-      "sslPort": 44308
+      "sslPort": 44308 //do not edit
     }
   },
   "profiles": {
-    "BookTrackers2000": {
+    "BookTrackers2000": { //used if application is run using .NET Core CLI
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
@@ -19,7 +21,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "IIS Express": {
+    "IIS Express": { //used if application is run from Visual Studio (button etc)
       "commandName": "IISExpress",
       "launchBrowser": true,
       "launchUrl": "api/BookTrackers",

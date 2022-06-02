@@ -16,12 +16,12 @@
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddIdentityServer()
-            .AddInMemoryPersistedGrants()
-            .AddDeveloperSigningCredential()
             .AddInMemoryApiResources(Config.ApiResources)
             .AddInMemoryApiScopes(Config.ApiScopes)
             .AddInMemoryClients(Config.Clients)
-            .AddInMemoryIdentityResources(Config.IdentityResources);
+            .AddInMemoryIdentityResources(Config.IdentityResources)
+            .AddTestUsers(Config.TestUsers)
+            .AddDeveloperSigningCredential();
 
         }
     }

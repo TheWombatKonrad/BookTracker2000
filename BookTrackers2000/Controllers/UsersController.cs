@@ -72,6 +72,13 @@ namespace BookTrackersApi.Controllers
             return Ok(new { message = "User deleted successfully" });
         }
 
+        [HttpDelete("current")]
+        public IActionResult DeleteCurrentUser()
+        {
+            _userService.DeleteCurrentUser();
+            return Ok(new { message = "User deleted successfully" });
+        }
+
         //----Books
         [HttpDelete("{userId}/books/{bookId}")]
         public IActionResult DeleteUserBook(int userId, int bookId)

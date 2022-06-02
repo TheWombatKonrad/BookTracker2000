@@ -10,22 +10,26 @@
     <title>BookTrackers Register Book</title>
 </head>
 <body>
-        <header>
-            <div>
-                <a href="index.html">Homepage</a>
-                <a href="books.html">Library</a>
-            </div>
-            <h1>BookTrackers2000</h1>
-        </header>
+    <header>
+        <div class="nav">
+            <a href="index.html">Homepage</a>
+            <a href="books.html">Library</a>
+        </div>
+        <h1>BookTrackers2000</h1>
+        <div id="loggedIn" class="user-bar">
+            <span id="username">{{this.username}}</span>
+            <a href="logout.html" @click="logOut">Log out</a>
+        </div>
+    </header>
 
         <main>
             <form @submit.prevent="registerBook">
                 <h2>Register Book</h2>
-                <input type="text" v-model="title" placeholder="Title" />
-                <input type="text" v-model="firstName" placeholder="First Name" />
-                <input type="text" v-model="lastName" placeholder="Last Name" />
-                <input type="number" v-model="pages" placeholder="Number of Pages" />
-                <input type="submit" value="Submit" />
+                <input type="text" v-model="title" placeholder="Title" required/>
+                <input type="text" v-model="firstName" placeholder="First Name" required maxlength="16"/>
+                <input type="text" v-model="lastName" placeholder="Last Name" required maxlength="16"/>
+                <input type="number" v-model="pages" placeholder="Number of Pages" required max="3000"/>
+                <input type="submit" value="Submit" class="submit-button"/>
                 <span id="message"></span>
             </form>
         </main>

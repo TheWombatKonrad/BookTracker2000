@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8ectIUK8c9AzpBib6SckC3SKH12NOZeeCle1l9a6AB8=",
+  "Hash": "MzC+sQLVyH95w4HplqVRul1kPmLnCM+T/zfx3i/jVc8=",
   "Source": "BookTrackersWeb",
   "BasePath": "_content/BookTrackersWeb",
   "Mode": "Default",
@@ -17,6 +17,23 @@
   ],
   "Assets": [
     {
+      "Identity": "G:\\Min enhet\\Dokument\\Skola\\.NET\\Backend\\BookTracker2000\\BookTrackersWebb\\wwwroot\\css\\account.css",
+      "SourceId": "BookTrackersWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\Min enhet\\Dokument\\Skola\\.NET\\Backend\\BookTracker2000\\BookTrackersWebb\\wwwroot\\",
+      "BasePath": "_content/BookTrackersWeb",
+      "RelativePath": "css/account.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\account.css"
+    },
+    {
       "Identity": "G:\\Min enhet\\Dokument\\Skola\\.NET\\Backend\\BookTracker2000\\BookTrackersWebb\\wwwroot\\css\\add-book.css",
       "SourceId": "BookTrackersWeb",
       "SourceType": "Discovered",
@@ -32,40 +49,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\add-book.css"
-    },
-    {
-      "Identity": "G:\\Min enhet\\Dokument\\Skola\\.NET\\Backend\\BookTracker2000\\BookTrackersWebb\\wwwroot\\css\\books.css",
-      "SourceId": "BookTrackersWeb",
-      "SourceType": "Discovered",
-      "ContentRoot": "G:\\Min enhet\\Dokument\\Skola\\.NET\\Backend\\BookTracker2000\\BookTrackersWebb\\wwwroot\\",
-      "BasePath": "_content/BookTrackersWeb",
-      "RelativePath": "css/books.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\books.css"
-    },
-    {
-      "Identity": "G:\\Min enhet\\Dokument\\Skola\\.NET\\Backend\\BookTracker2000\\BookTrackersWebb\\wwwroot\\css\\index.css",
-      "SourceId": "BookTrackersWeb",
-      "SourceType": "Discovered",
-      "ContentRoot": "G:\\Min enhet\\Dokument\\Skola\\.NET\\Backend\\BookTracker2000\\BookTrackersWebb\\wwwroot\\",
-      "BasePath": "_content/BookTrackersWeb",
-      "RelativePath": "css/index.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\index.css"
     },
     {
       "Identity": "G:\\Min enhet\\Dokument\\Skola\\.NET\\Backend\\BookTracker2000\\BookTrackersWebb\\wwwroot\\css\\logout.css",

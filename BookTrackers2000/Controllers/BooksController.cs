@@ -39,7 +39,13 @@ namespace BookTrackersApi.Controllers
         {
             _bookService.Update(id, model);
             return Ok(new { message = "Book updated successfully" });
+        }
 
+        [HttpPut("{bookId}/authors/add")]
+        public IActionResult AddAuthor(int bookId, AddAuthorRequest model)
+        {
+            _bookService.AddAuthor(bookId, model);
+            return Ok(new { message = "Author added successfully" });
         }
 
         [HttpPost]

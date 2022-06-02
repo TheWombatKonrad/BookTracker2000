@@ -13,18 +13,10 @@
     <header>
         <a href="index.html">Homepage</a>
         <h1>BookTrackers2000</h1>
-        <div v-if="!this.loggedIn">
-            <form @submit.prevent="login">
-                <input type="text" v-model="username" placeholder="Username" />
-                <input type="password" v-model="password" name="password" placeholder="Password" />
-                <input type="submit" value="Submit" />
-            </form>
-            <a href="register.html">Register</a>
-        </div>
         <div v-if="this.loggedIn" id="loggedIn">
             <span id="username">{{this.username}}</span>
             <a href="account.html">Account</a>
-            <a href="logout.html" @click="logout">Log out</a>
+            <a href="logout.html" @click="logOut">Log out</a>
         </div>
     </header>
 

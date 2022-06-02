@@ -12,11 +12,13 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+//makes sure the html files are loaded
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
 app.UseRouting();
 
+//starts the webpage on the index
 app.UsePathBase("/pages/index.html");
 
 app.Run("https://localhost:4001");

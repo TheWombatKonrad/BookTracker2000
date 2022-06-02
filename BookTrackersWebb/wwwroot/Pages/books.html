@@ -7,33 +7,24 @@
     <script src="../js/site.js" defer></script>
     <script src="https://unpkg.com/vue"></script>
     <link rel="stylesheet" href="../css/site.css">
-    <link rel="stylesheet" href="../css/books.css">
     <title>BookTrackers</title>
 </head>
 
 <body>
     <header>
-        <div id="nav">
+        <div class="nav">
             <a href="index.html">Homepage</a>
             <a href="add-book.html">Add Book</a>
         </div>
         <h1>BookTrackers2000</h1>
-        <div v-if="!this.loggedIn">
-            <form @submit.prevent="login">
-                <input type="text" v-model="username" placeholder="Username" />
-                <input type="password" v-model="password" name="password" placeholder="Password" />
-                <input type="submit" value="Submit" />
-            </form>
-            <a href="register.html">Register</a>
-        </div>
-        <div v-if="this.loggedIn" id="loggedIn">
+        <div class="user-bar">
             <span id="username">{{this.username}}</span>
             <a href="account.html">Account</a>
-            <a href="logout.html" @click="logout">Log out</a>
+            <a href="logout.html" @click="logOut">Log out</a>
         </div>
     </header>
-    <main>
-        <div id="library">
+    <main class="divided">
+        <div class="box">
             <h2>Available Books</h2>
             <ul>
                 <li v-for="book in library" class="book">
@@ -52,10 +43,11 @@
                 </li>
             </ul>
         </div>
-        <div id="user-books">
+        <div class="box">
             <h2>Your books</h2>
             <ul>
                 <li v-for="book in userBooks" class="book">
+                    <div>
                     <p>Title: {{book.title}}</p>
                     <p>
                         Authors:
@@ -66,6 +58,7 @@
                         </ul>
                     </p>
                     <p>{{book.totalPagesRead}}/{{book.totalPages}} pages read</p>
+                    </div>
                 </li>
             </ul>
         </div>
